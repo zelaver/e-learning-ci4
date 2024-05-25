@@ -1,0 +1,211 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	color: 0;
+	font-family: "Inter", sans-serif;
+	font-weight: inherit;
+	box-sizing: border-box;
+	/* border: 1px solid red; */
+}
+
+a {
+	text-decoration: none; /* Menghapus garis bawah */
+	color: #28D6D8; /* Mengatur warna teks agar mewarisi warna dari elemen induknya */
+}
+
+
+body {
+	min-height: 100vh;
+}
+
+/* -NAV */
+nav {
+	padding: 1em;
+	position: fixed;
+	height: 100%;
+	width: 320px;
+}
+
+nav h1 {
+	text-align: center;
+	margin-bottom: 1em;
+	color: #4f4f4f;
+	font-weight: bold;
+}
+
+nav h1 span {
+	color: #0ba5ec;
+}
+
+ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	/* gap: 1em; */
+}
+
+ul li{
+	min-height: 40px;
+}
+
+nav ul li a {
+	display: flex;
+	align-items: center;
+	padding-left: 0.8em;
+	color: #344054;
+	border-radius: 0.5em;
+	/* gap: 0.4em; */
+}
+
+nav ul li a p {
+	font-size: 1em;
+}
+
+.fa-angle-right {
+	margin-left: auto;
+	align-self: center;
+}
+
+.nav-selected {
+	background-color: #0ba5ec;
+	color: #ffffff;
+}
+
+.nav-selected .fa-solid {
+	color: #ffffff;
+}
+
+.fa-solid {
+	color: #98a2b3;
+	width: 26px;
+	justify-self: center;
+}
+
+i::before {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* -MAIN */
+
+main {
+	padding: 2em;
+	min-height: 100vh;
+	margin-left: 320px;
+}
+
+main h1 {
+	font-size: 30px;
+	font-weight: 500;
+	color: #101828;
+}
+
+main p {
+	font-weight: 400;
+	font-size: 1em;
+	color: #667085;
+}
+
+main h2 {
+	margin: 2em 0;
+}
+
+/* Main > Info */
+.container-info {
+	display: grid;
+	/* height: 600px; */
+	height: auto;
+	margin-top: 1em;
+	gap: 2em;
+	grid-template-areas:
+		"sekolah-1 sekolah-1 sekolah-1 sekolah-1"
+		"sekolah-2 sekolah-2 sekolah-4 sekolah-4"
+		"sekolah-3 sekolah-3 sekolah-4 sekolah-4";
+}
+
+.container-info > * {
+	min-height: 460px;
+	padding: 2em;
+	display: flex;
+	flex-direction: column-reverse;
+	background-position: center;
+	background-repeat: none;
+	background-size: cover;
+	border-radius: 1em;
+	box-shadow: 0px -200px 30px rgba(0, 0, 0, 0.5) inset;
+}
+
+.container-info > * > h2 {
+	color: white;
+	font-size: 24px;
+}
+
+.sekolah-1 {
+	grid-area: sekolah-1;
+	background-image: url("../img/sekolah-1.png");
+}
+
+.sekolah-2 {
+	grid-area: sekolah-2;
+	background-image: url("../img/sekolah-2.jpg");
+}
+.sekolah-3 {
+	grid-area: sekolah-3;
+	background-image: url("../img/sekolah-3.jpg");
+}
+.sekolah-4 {
+	grid-area: sekolah-4;
+	background-image: url("../img/sekolah-4.jpg");
+}
+
+/* Main > cards */
+.cards-info {
+	display: flex;
+	gap: 1em;
+	/* width: 100%; */
+}
+
+.cards-info > * {
+	min-height: 490px;
+	flex-grow: 1;
+	flex-basis: 0;
+	padding-bottom: 1em;
+	border: 1px solid #eaecf0;
+}
+
+.cards-info > * > .img-card {
+	background-position: center;
+	background-repeat: none;
+	background-size: cover;
+	min-height: 280px;
+}
+
+.cards-info > * > h2 {
+	color: #101828;
+	font-weight: 600;
+	font-size: 24px;
+}
+
+.cards-info > * > h2,
+p,
+a {
+	margin: 1em;
+}
+
+.card-1 .img-card {
+	background-image: url("../img/img-card-1.jpg");
+}
+.card-2 .img-card {
+	background-image: url("../img/img-card-2.jpg");
+}
+.card-3 .img-card {
+	background-image: url("../img/img-card-3.jpg");
+}
+.card-4 .img-card {
+	background-image: url("../img/img-card-4.jpg");
+}
+.card-5 .img-card {
+	background-image: url("../img/img-card-5.jpg");
+}
