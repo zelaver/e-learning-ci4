@@ -1,0 +1,39 @@
+.nav-link {
+	display: flex;
+	align-items: center;
+	padding: 0.7rem 0.5rem;
+	color: #344054;
+	border-radius: 0.5em;
+	gap: 0.5em;
+}
+
+.fa-angle-right {
+	margin-left: auto;
+	align-self: center;
+}
+
+.nav-selected {
+	background-color: #0ba5ec;
+	color: #ffffff;
+}
+
+.nav-selected .fa-solid {
+	color: #ffffff;
+}
+
+.fa-solid {
+	color: #98a2b3;
+	width: 26px;
+	// aspect-ratio: 1/1;
+	justify-self: center;
+}
+
+.fa-solid::before {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.fa {
+	line-height: inherit;
+}
