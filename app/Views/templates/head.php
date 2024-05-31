@@ -16,8 +16,8 @@
 
     <!-- -Css -->
     <link rel='stylesheet' href='css/tailwind.css'>
-    <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
 
     <!-- -jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
