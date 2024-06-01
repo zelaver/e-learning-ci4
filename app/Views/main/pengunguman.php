@@ -1,16 +1,14 @@
 <?php
-$data['judul'] = 'Pengunguman';
-echo view('templates/head', $data)
+$data["judul"] = "Pengunguman";
+echo view("templates/head", $data);
 ?>
 
 <body>
     <div>
-        <?php
-        echo view('templates/nav')
-        ?>
+        <?php echo view("templates/nav"); ?>
 
         <main class="ml-80 h-min-[100vh] p-8">
-            <h1 class="font-semibold text-xl text-[#101828] mb-4 ">Classes</h1>
+            <h1 class="font-semibold text-gray-500">Pengunguman</h1>
             <div class="container-info">
                 <div class="sekolah-1">
                     <h2>Murid SMAN 89 Jakarta Menang Turnamen E-Sport di Telkom School!</h2>

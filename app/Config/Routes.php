@@ -9,3 +9,4 @@ $routes->get('/', 'Pengunguman::index');
 $routes->get('pengunguman', 'Pengunguman::index');
 $routes->get('class', 'Classes::index');
 $routes->get('task', 'Task::index');
+$routes->get('profile', 'Profile::index');

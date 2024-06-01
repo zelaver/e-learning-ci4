@@ -128,3 +128,5 @@ nb-configuration.xml
 # Node Modules
 node_modules/
 writable/
+
+.prettierrc.json

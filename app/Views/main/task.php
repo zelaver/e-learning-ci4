@@ -1,12 +1,10 @@
 <?php
-$data['judul'] = 'Class';
-echo view('templates/head', $data)
+$data["judul"] = "Class";
+echo view("templates/head", $data);
 ?>
 
 <body>
-    <?php
-    echo view('templates/nav')
-    ?>
+    <?php echo view("templates/nav"); ?>
     <main class="ml-80 p-8">
 
         <h1 class="font-semibold text-gray-500">Tugas</h1>
@@ -38,8 +36,7 @@ echo view('templates/head', $data)
                 </div>
             </div>
 
-            <?php
-            for ($i = 0; $i < 10; $i++) {
+            <?php for ($i = 0; $i < 10; $i++) {
                 echo "<div class='task flex gap-3 bg-gray-100 p-4 rounded-2xl'>
                     <div class='task-icon h-14 aspect-square size-fit p-4 bg-blue-400 bg-opacity-20 flex items-center justify-center rounded-xl '>
                         <i class='ri-book-open-line text-2xl text-blue-400'></i>
@@ -49,8 +46,7 @@ echo view('templates/head', $data)
                         <p class='font-normal text-gray-400'>8:00 AM - 10:00 AM</p>
                     </div>
                 </div>";
-            }
-            ?>
+            } ?>
 
         </div>
     </main>

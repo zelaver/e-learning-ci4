@@ -8,8 +8,8 @@
             </a>
         </li>
         <li class="group">
-            <a href="pengunguman" class="nav-link group-hover:text-white transition-colors duration-100">
-                <i class="fa-xl fa-solid fa-house group-hover:text-white transition-colors duration-100"></i>
+            <a href="pengunguman" class="nav-link group-hover:text-white transition-colors duration-100 ">
+                <i class="ri-news-line group-hover:text-white transition-colors duration-100 text-2xl h-6 aspect-square flex text-[#98a2b3] items-center"></i>
                 <p>Pengunguman</p>
             </a>
         </li>
@@ -26,22 +26,29 @@
                 <p>Task</p>
             </a>
         </li>
-        <li class="group">
-            <a href="help" class="nav-link group-hover:text-white transition-colors duration-100">
-                <i class="ri-group-line group-hover:text-white transition-colors duration-100 text-2xl"></i>
-                <p>Help</p>
-            </a>
-        </li>
+        
     </ul>
 
     <!-- Footer -->
     <div class="footer mt-auto mb-32 flex flex-col gap-6">
         <!-- Settings Button -->
+        <ul>
+        <li class="group">
+            <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4         transition-colors duration-100 cursor-default">
+                <i class="ri-group-line text-gray-500 text-2xl" aria-hidden="true"></i>
+                <p class="text-base self-center">Help</p>
+            </a>
 
-        <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4 transition-colors duration-100 cursor-default">
-            <i class="fa fa-cog text-gray-500 fa-lg" aria-hidden="true"></i>
-            <p class="text-base self-center">Settings</p>
-        </a>
+
+        </li>
+        <li>    
+            <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4 transition-colors duration-100 cursor-default">
+                <i class="ri-settings-line text-gray-500 text-2xl" aria-hidden="true"></i>
+                <p class="text-base self-center">Settings</p>
+            </a>
+        </li>
+        </ul>
+
 
 
         <!-- Profile section  -->
@@ -49,6 +56,7 @@
             <img src="img/imcooked.png" alt="pp" class=" aspect-square h-full rounded-full object-cover object-center">
             <div class="username-email ml-2 mr-auto">
                 <p class="font-medium">Jegal</p>
+            
                 <p class="font-light text-gray-500">Jegal@e-learning.com</p>
             </div>
             <a href="" class="inline-block">
