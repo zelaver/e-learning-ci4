@@ -1,33 +1,4 @@
-* {
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	color: 0;
-	font-family: "Inter", sans-serif;
-	font-weight: inherit;
-	box-sizing: border-box;
-	/* border: 1px solid red; */
-}
 
-/* -MAIN */
-
-main {
-	padding: 2em;
-	min-height: 100vh;
-	margin-left: 320px;
-}
-
-main h1 {
-	font-size: 2rem;
-	font-weight: 500;
-	color: #101828;
-}
-
-main p {
-	font-weight: 400;
-	font-size: 1em;
-	color: #667085;
-}
 
 /* Main > Info */
 .container-info {
@@ -194,4 +165,22 @@ main p {
 	main p {
 		font-size: 0.7rem;
 	}
+}
+
+/* class */
+.class {
+	position: relative;
+}
+.class::before {
+	height: 11px;
+	width: calc(100% + 3px);
+	background-color: #3649f9;
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 50%;
+	transform: translate(50%, 0);
+
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }

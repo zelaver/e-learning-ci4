@@ -1,18 +1,16 @@
 <?php
-$data['judul'] = 'Dashboard';
+$data['judul'] = 'Pengunguman';
 echo view('templates/head', $data)
 ?>
 
 <body>
-    <div class="">
+    <div>
         <?php
         echo view('templates/nav')
         ?>
 
-        <main>
-            <h1>Informasi Terkini</h1>
-            <p class="selection:bg-[#0BA5EC] selection:text-lime-100">informasi penting atau pengunguman akan ditampilkan di sini</p>
-
+        <main class="ml-80 h-min-[100vh] p-8">
+            <h1 class="font-semibold text-xl text-[#101828] mb-4 ">Classes</h1>
             <div class="container-info">
                 <div class="sekolah-1">
                     <h2>Murid SMAN 89 Jakarta Menang Turnamen E-Sport di Telkom School!</h2>
