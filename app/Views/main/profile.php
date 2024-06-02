@@ -54,7 +54,7 @@ echo view("templates/head", $data);
             </div>
         </div>
 
-    
+
     </main>
 
 </body>

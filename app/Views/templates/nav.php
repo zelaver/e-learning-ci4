@@ -26,27 +26,27 @@
                 <p>Task</p>
             </a>
         </li>
-        
+
     </ul>
 
     <!-- Footer -->
     <div class="footer mt-auto mb-32 flex flex-col gap-6">
         <!-- Settings Button -->
         <ul>
-        <li class="group">
-            <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4         transition-colors duration-100 cursor-default">
-                <i class="ri-group-line text-gray-500 text-2xl" aria-hidden="true"></i>
-                <p class="text-base self-center">Help</p>
-            </a>
+            <li class="group">
+                <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4         transition-colors duration-100 cursor-default">
+                    <i class="ri-group-line text-gray-500 text-2xl" aria-hidden="true"></i>
+                    <p class="text-base self-center">Help</p>
+                </a>
 
 
-        </li>
-        <li>    
-            <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4 transition-colors duration-100 cursor-default">
-                <i class="ri-settings-line text-gray-500 text-2xl" aria-hidden="true"></i>
-                <p class="text-base self-center">Settings</p>
-            </a>
-        </li>
+            </li>
+            <li>
+                <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4 transition-colors duration-100 cursor-default">
+                    <i class="ri-settings-line text-gray-500 text-2xl" aria-hidden="true"></i>
+                    <p class="text-base self-center">Settings</p>
+                </a>
+            </li>
         </ul>
 
 
@@ -56,7 +56,7 @@
             <img src="img/imcooked.png" alt="pp" class=" aspect-square h-full rounded-full object-cover object-center">
             <div class="username-email ml-2 mr-auto">
                 <p class="font-medium">Jegal</p>
-            
+
                 <p class="font-light text-gray-500">Jegal@e-learning.com</p>
             </div>
             <a href="" class="inline-block">
