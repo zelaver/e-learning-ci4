@@ -3,16 +3,41 @@
 @tailwind utilities;
 
 * {
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	color: 0;
-	font-family: "Inter", sans-serif;
-	font-weight: inherit;
-	box-sizing: border-box;
-	/* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: inherit;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
 }
 
 .nav-link {
-	@apply hover:bg-sky-400;
+  @apply hover:bg-sky-400;
+}
+
+.input-email:not(:placeholder-shown) + .label-email,
+.input-email:focus + .label-email {
+  display: block;
+  @apply -translate-y-11;
+  @apply -translate-x-4;
+}
+.input-password:not(:placeholder-shown) + .label-password,
+.input-password:focus + .label-password {
+  display: block;
+  @apply -translate-y-11;
+  @apply -translate-x-4;
+}
+.input-confirm-password:not(:placeholder-shown) + .label-confirm-password,
+.input-confirm-password:focus + .label-confirm-password {
+  display: block;
+  @apply -translate-y-11;
+  @apply -translate-x-4;
+}
+.input-nama:not(:placeholder-shown) + .label-nama,
+.input-nama:focus + .label-nama {
+  display: block;
+  @apply -translate-y-11;
+  @apply -translate-x-4;
 }

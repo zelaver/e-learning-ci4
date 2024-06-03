@@ -1,0 +1,18 @@
+
+/* class */
+.class {
+	position: relative;
+}
+.class::before {
+	height: 11px;
+	width: calc(100% + 3px);
+	background-color: #3649f9;
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 50%;
+	transform: translate(50%, 0);
+
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
