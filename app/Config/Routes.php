@@ -18,4 +18,5 @@ $routes->get('profile', 'Profile::index');
 $routes->get('login', 'Login::index');
 
 $routes->get('register', 'Register::index');
+// $routes->get('registering', 'Register::register');
 $routes->post('register', 'Register::register');

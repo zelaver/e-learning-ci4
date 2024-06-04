@@ -9,9 +9,12 @@ use CodeIgniter\HTTP\ResponseInterface;
 class Register extends BaseController
 {
     protected $ModelUser;
+    protected $validation;
     public function __construct()
     {
         $this->ModelUser = new User();
+        $this->validation = \Config\Services::validation();
+
     }
 
     // public function index()
@@ -19,9 +22,11 @@ class Register extends BaseController
     //     echo view('main/register');
     // }
 
-    public function index(){
-        $msg = '';
-        echo view('main/register', ['msg' => $msg]);
+    public function index()
+    {
+        $data['validation'] = session()->getFlashdata('validation');
+        $data['masuksini'] = 'masuk sini';
+        return view('main/register', $data);
     }
 
     public function register()
@@ -29,8 +34,8 @@ class Register extends BaseController
 
         // > Rules validasi untuk form
         $rules = [
-            'nama' => 'required',
-            'email' => 'required|valid_email',
+            'nama' => 'required|is_unique[user.nama]',
+            'email' => 'required|valid_email|is_unique[user.email]',
             'password' => 'required|min_length[3]|matches[confirm-password]',
             'confirm-password' => 'required|matches[password]'
         ];
@@ -38,30 +43,37 @@ class Register extends BaseController
         // > Validation messages
         $messages = [
             'nama' => [
-                'required' => 'Nama Belum diisi!!'
+                'required' => 'Nama Belum diisi!',
+                'is_unique' => 'Nama sudah terdaftar!'
+
             ],
             'email' => [
-                'required' => 'Email Belum diisi!!',
-                'valid_email' => 'Email Tidak Benar!!',
-                
+                'required' => 'Email Belum diisi!',
+                'valid_email' => 'Email Tidak Benar!',
+                'is_unique' => 'Email sudah terdaftar!'
+
             ],
             'password' => [
-                'required' => 'Password Belum diisi!!',
-                'min_length' => 'Password Terlalu Pendek!!',
-                'matches' => 'Password Tidak Sama!!'
+                'required' => 'Password Belum diisi!',
+                'min_length' => 'Password Terlalu Pendek!',
+                'matches' => 'Password Tidak Sama!'
             ],
             'confirm-password' => [
-                'required' => 'Repeat Password Belum diisi!!',
-                'matches' => 'Repeat Password Tidak Sama!!'
+                'required' => 'Confirm Password Belum diisi!',
+                'matches' => 'Confirm Password Tidak Sama!'
             ]
         ];
 
         // > Cek Validasi input
-        $validation = \Config\Services::validation();
         if (!$this->validate($rules, $messages)) {
-            $msg = $validation->getErrors();
-            echo view('main/register', ['msg' => $msg]);
-
+            // echo view('main/register', ['msg' => $msg]);
+            // dd($validation->listErrors());
+            // dd($validation->getErrors());
+            $validation = $this->validation;
+            return redirect()->to(base_url('register'))->withInput()->with('validation', $validation);
+            
+            // $data['validation'] = \Config\Services::validation();
+            // return view('main/register', $data);
         } else {
             $data = [
                 'nama' => $this->request->getVar('nama'),
@@ -74,7 +86,7 @@ class Register extends BaseController
 
             $this->ModelUser->insert($data);
 
-            // session()->setFlashdata('msg', '<div class="alert alert-success alert-message" role="alert">Registrasi Berhasil!</div>');
+            session()->setFlashdata('msg', '<p class="block text-center shadow-sm border border-green-600 text-green-600 text-xl p-4 rounded-md mt-4">Registrasi Berhasil!</p>');
             return redirect()->to(base_url('login'));
         }
     }

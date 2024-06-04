@@ -10,6 +10,7 @@ echo view("templates/head", $data);
         <div class="login-card w-full lg:w-1/2  xl:h-full self-stretch bg-white p-14 rounded-md flex flex-col gap-2 xl:self-center">
             <h2 class="font-poppins font-medium text-2xl">Login</h2>
             <h1 class="font-poppins font-extrabold text-3xl"><span class="text-blue-600">E</span>-learning</h1>
+            <?php echo session()->getFlashdata('msg') ?>
             <form class="my-4 flex flex-col gap-4" action="">
                 <div class="relative">
                     <input class=" input-email block w-full outline-none h-16 rounded-lg pl-14 border-gray-300 border relative peer invalid:border-red-500 invalid:text-red-500 " type="email" id="email" placeholder="">
