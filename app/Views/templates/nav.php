@@ -59,7 +59,7 @@
 
                 <p class="font-light text-gray-500">Jegal@e-learning.com</p>
             </div>
-            <a href="" class="inline-block">
+            <a href="logout" class="inline-block">
                 <i class="fa fa-sign-out text-gray-500 fa-lg" aria-hidden="true"></i>
 
             </a>

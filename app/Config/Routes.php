@@ -16,7 +16,8 @@ $routes->get('task', 'Task::index');
 $routes->get('profile', 'Profile::index');
 
 $routes->get('login', 'Login::index');
+$routes->post('login', 'Login::login');
+$routes->get('logout', 'Login::logout');
 
 $routes->get('register', 'Register::index');
-// $routes->get('registering', 'Register::register');
 $routes->post('register', 'Register::register');
