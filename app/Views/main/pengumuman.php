@@ -1,5 +1,5 @@
 <?php
-$data["judul"] = "Pengunguman";
+$data["judul"] = "pengumuman";
 echo view("templates/head", $data);
 ?>
 

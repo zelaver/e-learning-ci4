@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-class Pengunguman extends BaseController
+class Pengumuman extends BaseController
 {
     public function index()
     {
         if(!session()->get('is_login')){
             return redirect()->to('/');
         };
-        return view('main/pengunguman');
+        return view('main/pengumuman');
     }
 }

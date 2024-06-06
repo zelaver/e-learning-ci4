@@ -8,9 +8,9 @@
             </a>
         </li>
         <li class="group">
-            <a href="pengunguman" class="nav-link group-hover:text-white transition-colors duration-100 ">
+            <a href="pengumuman" class="nav-link group-hover:text-white transition-colors duration-100 ">
                 <i class="ri-news-line group-hover:text-white transition-colors duration-100 text-2xl h-6 aspect-square flex text-[#98a2b3] items-center"></i>
-                <p>Pengunguman</p>
+                <p>Pengumuman</p>
             </a>
         </li>
         <li class="group">
@@ -42,9 +42,9 @@
 
             </li>
             <li>
-                <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4 transition-colors duration-100 cursor-default">
-                    <i class="ri-settings-line text-gray-500 text-2xl" aria-hidden="true"></i>
-                    <p class="text-base self-center">Settings</p>
+                <a href="logout" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4 transition-colors duration-100 cursor-default">
+                    <i class="ri-logout-circle-line text-gray-500 text-2xl" aria-hidden="true"></i>
+                    <p class="text-base self-center">Logout</p>
                 </a>
             </li>
         </ul>
@@ -59,10 +59,10 @@
 
                 <p class="font-light text-gray-500">Jegal@e-learning.com</p>
             </div>
-            <a href="logout" class="inline-block">
+            <!-- <a href="logout" class="inline-block">
                 <i class="fa fa-sign-out text-gray-500 fa-lg" aria-hidden="true"></i>
 
-            </a>
+            </a> -->
         </div>
     </div>
 </nav>

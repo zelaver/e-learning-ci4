@@ -35,8 +35,32 @@
   @apply -translate-y-11;
   @apply -translate-x-4;
 }
+.input-class:not(:placeholder-shown) + .label-class,
+.input-class:focus + .label-class {
+  display: block;
+  @apply -translate-y-11;
+  @apply -translate-x-4;
+}
 .input-nama:not(:placeholder-shown) + .label-nama,
 .input-nama:focus + .label-nama {
+  display: block;
+  @apply -translate-y-11;
+  @apply -translate-x-4;
+}
+.input-parent:not(:placeholder-shown) + .label-parent,
+.input-parent:focus + .label-parent {
+  display: block;
+  @apply -translate-y-11;
+  @apply -translate-x-4;
+}
+.input-address:not(:placeholder-shown) + .label-address,
+.input-address:focus + .label-address {
+  display: block;
+  @apply -translate-y-11;
+  @apply -translate-x-4;
+}
+.input-phone:not(:placeholder-shown) + .label-phone,
+.input-phone:focus + .label-phone {
   display: block;
   @apply -translate-y-11;
   @apply -translate-x-4;
