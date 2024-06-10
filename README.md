@@ -3,6 +3,11 @@
 
 An intuitive and robust e-learning platform built using CodeIgniter 4 and TailwindCSS. This project aims to provide a seamless learning experience for both students and instructors, featuring a range of functionalities from course management to real-time communication.
 
+## Preview
+<img width="800" src="preview/p-1.png">
+
+<img width="800" src="preview/p-2.png">
+
 
 ## Features
 
@@ -71,5 +76,4 @@ To run devs, run the following command
 ```bash
   npm run dev
 ```
-
 
