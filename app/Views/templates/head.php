@@ -18,16 +18,16 @@
 
     <!-- -Css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <link rel='stylesheet' href='css/tailwind.css'>
-    <link rel="stylesheet" href="css/pengunguman.css" />
-    <link rel="stylesheet" href="css/nav.css" />
-    <link rel="stylesheet" href="css/class.css" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel='stylesheet' href='<?php echo base_url('css/tailwind.css') ?>'>
+    <link rel="stylesheet" href="<?php echo base_url('css/pengunguman.css') ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('css/nav.css') ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('css/class.css') ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('css/login.css') ?>" />
 
     <!-- -jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- -js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="js/script.js" defer></script>
+    <script src="<?php echo base_url('js/script.js') ?>" defer></script>
 </head>

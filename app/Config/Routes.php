@@ -9,7 +9,8 @@ $routes->get('/', 'Login::index');
 
 $routes->get('pengumuman', 'Pengumuman::index');
 
-$routes->get('class', 'Classes::index');
+$routes->get('classes', 'Classes::index');
+$routes->get('classes/(:num)', 'Classes::class/$1');
 
 $routes->get('task', 'Task::index');
 

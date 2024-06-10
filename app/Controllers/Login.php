@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\User;
+use App\Models\ModelUser;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class Login extends BaseController
@@ -12,7 +12,7 @@ class Login extends BaseController
     protected $validation;
     public function __construct()
     {
-        $this->ModelUser = new User();
+        $this->ModelUser = new ModelUser();
         $this->validation = \Config\Services::validation();
         
     }
