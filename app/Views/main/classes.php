@@ -28,7 +28,7 @@ echo view("templates/head", $data);
                 $class_info = $ModelClass->where('kode', $class)->first();
                 // echo dd($class_info);
                 $kode = $class_info['kode'];
-                $nama = $class_info['nama'];
+                $nama = $class_info['matpel'];
                 $hari = $class_info['hari'];
                 $jam  = $class_info['jam'];
                 $guru = $class_info['guru'];

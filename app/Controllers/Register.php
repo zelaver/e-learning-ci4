@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Models\ModelUser;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
@@ -12,7 +12,7 @@ class Register extends BaseController
     protected $validation;
     public function __construct()
     {
-        $this->ModelUser = new User();
+        $this->ModelUser = new ModelUser();
         $this->validation = \Config\Services::validation();
 
     }
