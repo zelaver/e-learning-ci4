@@ -25,9 +25,9 @@ echo view("templates/head", $data);
             <?php
             $classes = json_decode(session()->get('classes'));
             foreach ($classes as $class) {
-                $class_info = $ModelClass->where('kode', $class)->first();
+                $class_info = $ModelClass->where('kode_kelas', $class)->first();
                 // echo dd($class_info);
-                $kode = $class_info['kode'];
+                $kode = $class_info['kode_kelas'];
                 $nama = $class_info['matpel'];
                 $hari = $class_info['hari'];
                 $jam  = $class_info['jam'];

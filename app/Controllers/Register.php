@@ -85,7 +85,7 @@ class Register extends BaseController
             ];
 
             $this->ModelUser->insert($data);
-
+            
             session()->setFlashdata('msg', 'Registrasi Berhasil!');
             return redirect()->to(base_url('login'));
         }

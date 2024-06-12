@@ -17,6 +17,7 @@
   @apply hover:bg-sky-400;
 }
 
+
 .input-email:not(:placeholder-shown) + .label-email,
 .input-email:focus + .label-email {
   display: block;
@@ -64,4 +65,22 @@
   display: block;
   @apply -translate-y-11;
   @apply -translate-x-4;
+}
+
+header.class-detail{
+  .presensi, .kode-kelas, .total-pertemuan, .tugas, .guru, .total-tugas{
+    @apply border;
+    @apply border-slate-500;
+    @apply shadow-md;
+    @apply p-8;
+    @apply rounded-md;
+
+    h1{
+      @apply text-3xl
+    }
+    p{
+      @apply text-lg;
+      @apply text-slate-500
+    }
+  }
 }

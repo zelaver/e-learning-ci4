@@ -12,7 +12,7 @@ class ModelClass extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['kode', 'nama', 'hari', 'jam', 'guru'];
+    protected $allowedFields    = ['kode', 'matpel', 'hari', 'jam', 'guru'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

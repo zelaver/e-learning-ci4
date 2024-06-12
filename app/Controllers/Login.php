@@ -32,7 +32,7 @@ class Login extends BaseController
         if(!$user) return redirect()->to('login')->with('wrn', "Email tidak ditemukan");
         if(!password_verify($password, $user['password'])) return redirect()->to('login')->with("wrn", 'password salah');
 
-        // > Data yang di passing
+        // > Data yang di passing ke session
         $data = [
             'id' => $user['id'],
             'nama' => $user['nama'],
@@ -46,7 +46,7 @@ class Login extends BaseController
             'is_login' => true
         ];
         session()->set($data);
-
+        
         
         return redirect()->to('profile');
     }

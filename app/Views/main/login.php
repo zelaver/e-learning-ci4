@@ -11,16 +11,16 @@ echo view("templates/head", $data);
             <h2 class="font-poppins font-medium text-2xl">Login</h2>
             <h1 class="font-poppins font-extrabold text-3xl"><span class="text-blue-600">E</span>-learning</h1>
             <?php
-            if(session()->getFlashdata('msg')){
-                    echo '<p class="block text-center shadow-sm border border-green-600 text-green-600 text-xl p-4 rounded-md mt-4">'
+            if (session()->getFlashdata('msg')) {
+                echo '<p class="block text-center shadow-sm border border-green-600 text-green-600 text-xl p-4 rounded-md mt-4">'
                     . session()->getFlashdata("msg") .
                     '</p>';
-                }
-            if(session()->getFlashdata('wrn')){
-                    echo '<p class="block text-center shadow-sm border border-red-600 text-red-600 text-xl p-4 rounded-md mt-4">'
+            }
+            if (session()->getFlashdata('wrn')) {
+                echo '<p class="block text-center shadow-sm border border-red-600 text-red-600 text-xl p-4 rounded-md mt-4">'
                     . session()->getFlashdata("wrn") .
                     '</p>';
-                }
+            }
             ?>
             <form class="my-4 flex flex-col gap-4" method="POST" action="login">
                 <div class="relative">
