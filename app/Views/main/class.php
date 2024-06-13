@@ -3,36 +3,56 @@ $data["judul"] = "Class";
 echo view("templates/head", $data);
 ?>
 
+<?php
+date_default_timezone_set('Asia/Jakarta'); // Set timezone
+
+$currentTime = new DateTime();
+
+// dd($currentTime);
+$startTime = new DateTime($jam_mulai . ".00");
+$endTime = new DateTime($jam_berakhir . ".00");
+
+$isDisabled = ($currentTime < $startTime || $currentTime > $endTime);
+?>
+
 <body>
     <?php echo view("templates/nav"); ?>
     <div class="ml-80 p-8">
         <header class="class-detail grid min-h-80 grid-cols-4 grid-rows-2 gap-8">
-            <div class="presensi row-span-2 flex flex-col gap-2">
-                <h1 class="matpel flex justify-between">Bahasa Inggris<i class="ri-git-repository-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
-                <p class="hari">kamis</p>
-                <p class="jam">12.00 - 14.00</p>
-                <button class="mt-auto bg-blue-500 text-slate-200 p-2 rounded-md border-slate-500"><i class="ri-clipboard-fill"></i>Presensi</button>
-            </div>
+            <form class="presensi row-span-2 flex flex-col gap-2" action="<?php base_url('presensi/') . $kode_kelas?>" method="POST" >
+                <h1 class="matpel flex justify-between"><?php echo $matpel ?><i class="ri-git-repository-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
+                <p class="hari"><?php echo $hari ?></p>
+                <p class="jam"><?php echo $jam_mulai . ".00 - ". $jam_berakhir. ".00" ?></p>
+                <?php 
+                    if($isDisabled){
+                        echo '<button class="mt-auto bg-red-500 text-slate-200 p-2 rounded-md border-slate-500" disabled><i class="ri-clipboard-fill" ></i>Pelajaran Telah Berakhir</button>';
+                    }  else {
+                        echo '<button class="mt-auto bg-blue-500 text-slate-200 p-2 rounded-md border-slate-500" type="submit"><i class="ri-clipboard-fill" ></i>Presensi</button>';
+
+                    }
+                ?>
+
+            </form>
             <div class="kode-kelas">
-                <h1 class="flex justify-between">301<i class="ri-codepen-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
+                <h1 class="flex justify-between"><?php echo $kode_kelas ?><i class="ri-codepen-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
                 <p>Kode Kelas</p>
             </div>
             <div class="total-pertemuan">
-                <h1 class="flex justify-between">12<i class="ri-bar-chart-2-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
+                <h1 class="flex justify-between"><?php echo $total_pertemuan ?><i class="ri-bar-chart-2-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
                 <p>total Pertemuan</p>
             </div>
             <div class="tugas row-span-2 flex flex-col gap-4">
                 <h1 class="flex justify-between w-full content-stretch ">Tugas<i class="ri-list-check-3 bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
                 <div class="list-tugas flex flex-col h-full">
-                    <p class="block">Tidak ada tugas</p>
+                    <p class="block text-center">Tidak ada tugas</p>
                 </div>
             </div>
             <div class="guru">
-                <h1 class="flex justify-between">Skibidi<i class="ri-id-card-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
+                <h1 class="flex justify-between"><?php echo $guru ?><i class="ri-id-card-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
                 <p>Guru</p>
             </div>
             <div class="total-tugas">
-                <h1 class="flex justify-between">6<i class="ri-task-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400 text-2xl"></i></h1>
+                <h1 class="flex justify-between"> - <i class="ri-task-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400 text-2xl"></i></h1>
                 <p>Total Tugas</p>
             </div>
 

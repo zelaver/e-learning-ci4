@@ -34,7 +34,7 @@
         <!-- Settings Button -->
         <ul>
             <li class="group">
-                <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4         transition-colors duration-100 cursor-default">
+                <a href="#" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-6 transition-colors duration-100 cursor-default">
                     <i class="ri-group-line text-gray-500 text-2xl" aria-hidden="true"></i>
                     <p class="text-base self-center">Help</p>
                 </a>
@@ -42,7 +42,7 @@
 
             </li>
             <li>
-                <a href="logout" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-4 transition-colors duration-100 cursor-default">
+                <a href="<?php echo base_url('logout') ?>" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-6 transition-colors duration-100 cursor-default">
                     <i class="ri-logout-circle-line text-gray-500 text-2xl" aria-hidden="true"></i>
                     <p class="text-base self-center">Logout</p>
                 </a>
