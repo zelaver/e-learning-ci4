@@ -8,6 +8,8 @@ An intuitive and robust e-learning platform built using CodeIgniter 4 and Tailwi
 
 <img width="800" src="preview/p-2.png">
 
+<img width="800" src="preview/p-3.png">
+
 
 ## Features
 
