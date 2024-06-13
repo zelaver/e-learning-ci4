@@ -11,7 +11,7 @@ $routes->get('pengumuman', 'Pengumuman::index');
 
 $routes->get('classes', 'Classes::index');
 $routes->get('classes/(:num)', 'Classes::class/$1');
-$routes->get('presensi/(:num)', 'Classes::presensi/$1');
+$routes->post('presensi/(:num)/(:num)/(:num)', 'Classes::presensi/$1/$2/$3');
 
 $routes->get('task', 'Task::index');
 

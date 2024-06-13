@@ -3,31 +3,35 @@ $data["judul"] = "Class";
 echo view("templates/head", $data);
 ?>
 
+<!-- untuk mengecek jika waktu yang tepat untuk presensi -->
 <?php
-date_default_timezone_set('Asia/Jakarta'); // Set timezone
+    date_default_timezone_set('Asia/Jakarta'); // Set timezone
+    $currentTime = new DateTime();
+    // dd($currentTime);
+    $startTime = new DateTime($jam_mulai . ".00");
+    $endTime = new DateTime($jam_berakhir . ".00");
+    $isDisabled = ($currentTime < $startTime || $currentTime > $endTime);
+?>
 
-$currentTime = new DateTime();
-
-// dd($currentTime);
-$startTime = new DateTime($jam_mulai . ".00");
-$endTime = new DateTime($jam_berakhir . ".00");
-
-$isDisabled = ($currentTime < $startTime || $currentTime > $endTime);
+<?php
+    
 ?>
 
 <body>
     <?php echo view("templates/nav"); ?>
     <div class="ml-80 p-8">
-        <header class="class-detail grid min-h-80 grid-cols-4 grid-rows-2 gap-8">
-            <form class="presensi row-span-2 flex flex-col gap-2" action="<?php base_url('presensi/') . $kode_kelas?>" method="POST" >
+        <header class="class-detail grid min-h-80 grid-cols-4 grid-rows-2 gap-8"> 
+            <form class="presensi row-span-2 flex flex-col gap-2" action="<?php echo base_url('presensi/') . $kode_kelas .  '/' . $jam_mulai . '/' . $jam_berakhir ?>" method="POST" >
                 <h1 class="matpel flex justify-between"><?php echo $matpel ?><i class="ri-git-repository-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
                 <p class="hari"><?php echo $hari ?></p>
                 <p class="jam"><?php echo $jam_mulai . ".00 - ". $jam_berakhir. ".00" ?></p>
                 <?php 
                     if($isDisabled){
-                        echo '<button class="mt-auto bg-red-500 text-slate-200 p-2 rounded-md border-slate-500" disabled><i class="ri-clipboard-fill" ></i>Pelajaran Telah Berakhir</button>';
-                    }  else {
-                        echo '<button class="mt-auto bg-blue-500 text-slate-200 p-2 rounded-md border-slate-500" type="submit"><i class="ri-clipboard-fill" ></i>Presensi</button>';
+                        echo '<button class="mt-auto bg-red-500 text-slate-100 p-2 rounded-md border-slate-500" disabled><i class="ri-clipboard-fill" ></i>Pelajaran Telah Berakhir</button>';
+                    } elseif ($isDisabled) {
+
+                    } else  {
+                        echo '<button class="mt-auto bg-blue-500 text-slate-100 p-2 rounded-md border-slate-500" type="submit"><i class="ri-clipboard-fill" ></i>Presensi</button>';
 
                     }
                 ?>

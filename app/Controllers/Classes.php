@@ -3,15 +3,19 @@
 namespace App\Controllers;
 
 use App\Models\ModelClass;
+use App\Models\ModelKehadiran;
 use DateTime;
 use DateTimeZone;
+
 class Classes extends BaseController
 {
 
     protected $ModelClass;
+    protected $ModelKehadiran;
     public function __construct()
     {
         $this->ModelClass = new ModelClass();
+        $this->ModelKehadiran = new ModelKehadiran();
     }
 
     public function index()
@@ -38,21 +42,37 @@ class Classes extends BaseController
         $data['guru'] = $class_info['guru'];
         $data['total_pertemuan'] = $class_info['total_pertemuan'];
 
-       
+
 
         return view('main/class', $data);
     }
 
-    public function presensi(){
-        $kode_kelas = $this->request->getVar('kode_kelas');
-        $id_murid = $this->request->getVar('id_murid');
-
+    public function presensi($kode_kelas, $jam_mulai, $jam_berakhir)
+    {
         date_default_timezone_set('Asia/Jakarta'); // Set timezone
-        $currentTime = new DateTime();
-        $currentTime = $currentTime->format('Y-m-d H:i:s');
 
-        $created_at = $currentTime;
-        dd($created_at);
+        $id_murid = session()->get('id');
+        $created_at = new DateTime();
 
+
+        $startTime = new DateTime($jam_mulai . ".00");
+        $endTime = new DateTime($jam_berakhir . ".00");
+        // dd($startTime);
+        // dd($endTime);
+
+        if ($created_at < $startTime || $created_at > $endTime) {
+            session()->setFlashdata('msg', 'Registrasi Berhasil!');
+            return redirect()->to(base_url('classes/') . $kode_kelas);
+        } else {
+            $data = [
+                'kode_kelas' => $kode_kelas,
+                'id_murid' => $id_murid,
+                'created_at' => $created_at->format('Y-m-d H:i:s')
+            ];
+
+            $this->ModelKehadiran->insert($data);
+
+            return redirect()->to(base_url('classes/') . $kode_kelas);
+        }
     }
 }
