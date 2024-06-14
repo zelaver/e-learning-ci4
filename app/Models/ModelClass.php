@@ -7,12 +7,12 @@ use CodeIgniter\Model;
 class ModelClass extends Model
 {
     protected $table            = 'class';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'kode_kelas';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['kode', 'matpel', 'hari', 'jam_mulai', 'jam_berakhir', 'guru', 'total_pertemuan'];
+    protected $allowedFields    = [ 'matpel', 'hari', 'jam_mulai', 'jam_berakhir', 'guru', 'total_pertemuan'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

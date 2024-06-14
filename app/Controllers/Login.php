@@ -34,7 +34,7 @@ class Login extends BaseController
 
         // > Data yang di passing ke session
         $data = [
-            'id' => $user['id'],
+            'id_murid' => $user['id_murid'],
             'nama' => $user['nama'],
             'email' => $user['email'],
             'parent' => $user['parent'],

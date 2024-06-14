@@ -52,25 +52,19 @@ class Classes extends BaseController
     {
         date_default_timezone_set('Asia/Jakarta'); // Set timezone
 
-        $id_murid = session()->get('id');
+        $id_murid = session()->get('id_murid');
         $created_at = new DateTime();
 
 
         $startTime = new DateTime($jam_mulai . ".00");
         $endTime = new DateTime($jam_berakhir . ".00");
-        // dd($startTime);
-        // dd($endTime);
+
+        
 
         if ($created_at < $startTime || $created_at > $endTime) {
             session()->setFlashdata('msg', 'DIluar jam pelajaran!');
             return redirect()->to(base_url('classes/') . $kode_kelas);
-        } elseif('kock'){
-            
-            session()->setFlashdata('msg', 'Sudah Absen!');
-            return redirect()->to(base_url('classes/') . $kode_kelas);
-        }
-        
-        else {
+        } else {
             $data = [
                 'kode_kelas' => $kode_kelas,
                 'id_murid' => $id_murid,

@@ -13,7 +13,7 @@ $endTime = new DateTime($jam_berakhir . ".00");
 $diLuarJam = ($currentTime < $startTime || $currentTime > $endTime);
 
 $hasil = $ModelKehadiran->where('kode_kelas', $kode_kelas)
-    ->where('id_murid', session()->get('id'))
+    ->where('id_murid', session()->get('id_murid'))
     ->findAll();
 
 if ($hasil == null || $hasil == 0 || !$hasil) {
@@ -24,12 +24,14 @@ foreach ($hasil as $kehadiran) {
     $created_at = $kehadiran['created_at'];
     $created_at = new DateTime($created_at);
 
-    $id_user = session()->get('id');
+    $id_murid = session()->get('id_murid');
 
-    $isPresensi = ($kode_kelas == $kehadiran['kode_kelas'] && $id_user == $kehadiran['id_murid'] && $currentTime->format('d-l') == $created_at->format('d-l'));
+    $isPresensi = ($kode_kelas == $kehadiran['kode_kelas'] && $id_murid == $kehadiran['id_murid'] && $currentTime->format('d-l') == $created_at->format('d-l'));
 
     if ($isPresensi) break;
 }
+
+// dd($hasil);
 
 
 
@@ -50,7 +52,7 @@ foreach ($hasil as $kehadiran) {
     <?php echo view("templates/nav"); ?>
     <div class="ml-80 p-8">
         <header class="class-detail grid min-h-80 grid-cols-4 grid-rows-2 gap-8">
-            <form class="presensi row-span-2 flex flex-col gap-2" action="<?php echo base_url('presensi/') . $kode_kelas .  '/' . $jam_mulai . '/' . $jam_berakhir ?>" method="POST">
+            <form class="presensi row-span-2 flex flex-col gap-2" action="<?php echo (!$isPresensi && !$diLuarJam) ? base_url('presensi/') . $kode_kelas .  '/' . $jam_mulai . '/' . $jam_berakhir : '' ?>" method="POST">
                 <h1 class="matpel flex justify-between"><?php echo $matpel ?><i class="ri-git-repository-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
                 <p class="hari"><?php echo $hari ?></p>
                 <p class="jam"><?php echo $jam_mulai . ".00 - " . $jam_berakhir . ".00" ?></p>
@@ -152,7 +154,7 @@ foreach ($hasil as $kehadiran) {
                             </tr>
                         <?php } ?>
 
-                        <?php if (!$hasil && $currentTime->format('l') == $hari) { ?>
+                        <?php if (!$isPresensi &&$currentTime->format('l') == $hari) { ?>
                             <tr class="odd:bg-white  even:bg-gray-100 ">
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                     <?php echo $index ?>.
