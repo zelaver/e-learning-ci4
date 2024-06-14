@@ -42,7 +42,7 @@
 
             </li>
             <li>
-                <a href="<?php echo base_url('logout') ?>" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-6 transition-colors duration-100 cursor-default">
+                <a href="<?php echo base_url('logout') ?>" class="flex justify-start gap-2 w-full font-medium text-gray-700 align-middle hover:bg-gray-300 p-6 transition-colors duration-100 cursor-pointer">
                     <i class="ri-logout-circle-line text-gray-500 text-2xl" aria-hidden="true"></i>
                     <p class="text-base self-center">Logout</p>
                 </a>
@@ -55,9 +55,9 @@
         <div class="profile flex justify-between pt-4 px-4 border-t h-16 border-[#EAECF0]">
             <img src="<?php echo base_url('img/imcooked.png') ?>" alt="pp" class=" aspect-square h-full rounded-full object-cover object-center">
             <div class="username-email ml-2 mr-auto">
-                <p class="font-medium">Jegal</p>
+                <p class="font-medium"><?php echo session()->get('nama') ?></p>
 
-                <p class="font-light text-gray-500">Jegal@e-learning.com</p>
+                <p class="font-light text-gray-500"><?php echo session()->get('email') ?></p>
             </div>
             <!-- <a href="logout" class="inline-block">
                 <i class="fa fa-sign-out text-gray-500 fa-lg" aria-hidden="true"></i>

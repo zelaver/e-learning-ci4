@@ -41,6 +41,7 @@ class Classes extends BaseController
         $data['jam_berakhir']  = $class_info['jam_berakhir'];
         $data['guru'] = $class_info['guru'];
         $data['total_pertemuan'] = $class_info['total_pertemuan'];
+        $data['ModelKehadiran'] = $this->ModelKehadiran;
 
 
 
@@ -61,9 +62,15 @@ class Classes extends BaseController
         // dd($endTime);
 
         if ($created_at < $startTime || $created_at > $endTime) {
-            session()->setFlashdata('msg', 'Registrasi Berhasil!');
+            session()->setFlashdata('msg', 'DIluar jam pelajaran!');
             return redirect()->to(base_url('classes/') . $kode_kelas);
-        } else {
+        } elseif('kock'){
+            
+            session()->setFlashdata('msg', 'Sudah Absen!');
+            return redirect()->to(base_url('classes/') . $kode_kelas);
+        }
+        
+        else {
             $data = [
                 'kode_kelas' => $kode_kelas,
                 'id_murid' => $id_murid,

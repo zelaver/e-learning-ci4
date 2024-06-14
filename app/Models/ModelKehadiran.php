@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ModelKehadiran extends Model
 {
     protected $table            = 'kehadiran';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'id_kehadiran';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;

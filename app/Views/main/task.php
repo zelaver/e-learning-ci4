@@ -12,15 +12,15 @@ echo view("templates/head", $data);
         <!-- Task Info -->
         <div class="task-info flex gap-4 my-4 justify-center">
             <div class="task-total p-4 border rounded-md min-w-64 shadow-md">
-                <h2 class="font-medium text-xl text-gray-500 mb-3">Total tugas</h2>
+                <h2 class="font-medium text-xl text-gray-500 mb-3">Total</h2>
                 <p class="font-semibold text-3xl">1028</p>
             </div>
             <div class="task-total p-4 border rounded-md min-w-64 shadow-md">
-                <h2 class="font-medium text-xl text-gray-500 mb-3">Total tugas</h2>
+                <h2 class="font-medium text-xl text-gray-500 mb-3">Belum Selesai</h2>
                 <p class="font-semibold text-3xl">628</p>
             </div>
             <div class="task-total p-4 border rounded-md min-w-64 shadow-md">
-                <h2 class="font-medium text-xl text-gray-500 mb-3">Total tugas</h2>
+                <h2 class="font-medium text-xl text-gray-500 mb-3">Telah Dikumpulkan</h2>
                 <p class="font-semibold text-3xl">628</p>
             </div>
         </div>
