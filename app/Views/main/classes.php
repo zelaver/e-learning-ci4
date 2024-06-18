@@ -40,7 +40,7 @@ echo view("templates/head", $data);
                 echo
                 "
                 <form action='classes/" . $kode . "' method='GET'>
-                    <div class='class border-2 border-t-0  p-6 rounded-lg grid grid-cols-2 text-gray-400 shadow-sm min-h-80'>
+                    <div class='class border-2 border-t-0  p-6 rounded-lg grid grid-cols-2 text-gray-400 shadow-s min-h-80'>
                         <h2 class='text-2xl mb-4 col-span-2 text-slate-800 font-semibold'>" . $nama . "</h2>
                         <p class='col-span-2 '><i class='ri-user-fill mr-2'></i>" . $guru . "</p>
                         <p class=''><i class='ri-calendar-schedule-fill mr-2'></i>" . $hari . "</p>

@@ -14,6 +14,9 @@ $routes->get('classes/(:num)', 'Classes::class/$1');
 $routes->post('presensi/(:num)', 'Classes::presensi/$1');
 
 $routes->get('task', 'Task::index');
+$routes->get('task/(:num)', 'Task::task/$1');
+$routes->get('task/(:num)', 'Task::task/$1');
+$routes->post('kirimTugas/(:num)', 'Task::kirimTugas/$1');
 
 $routes->get('profile', 'Profile::index');
 $routes->post('profile/simpan', 'Profile::simpan');

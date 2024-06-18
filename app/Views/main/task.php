@@ -1,5 +1,5 @@
 <?php
-$data["judul"] = "Class";
+$data["judul"] = "Task";
 echo view("templates/head", $data);
 ?>
 
@@ -7,48 +7,29 @@ echo view("templates/head", $data);
     <?php echo view("templates/nav"); ?>
     <main class="ml-80 p-8">
 
-        <h1 class="font-semibold text-gray-500">Tugas</h1>
+        <h2 class="font-semibold text-blue-500 text-3xl"><?php echo $judul_tugas ?></h2>
+        <p class="text-base font-medium text-gray-800 my-8"><?php echo $desc_tugas ?></p>
 
-        <!-- Task Info -->
-        <div class="task-info flex gap-4 my-4 justify-center">
-            <div class="task-total p-4 border rounded-md min-w-64 shadow-md">
-                <h2 class="font-medium text-xl text-gray-500 mb-3">Total</h2>
-                <p class="font-semibold text-3xl">1028</p>
-            </div>
-            <div class="task-total p-4 border rounded-md min-w-64 shadow-md">
-                <h2 class="font-medium text-xl text-gray-500 mb-3">Belum Selesai</h2>
-                <p class="font-semibold text-3xl">628</p>
-            </div>
-            <div class="task-total p-4 border rounded-md min-w-64 shadow-md">
-                <h2 class="font-medium text-xl text-gray-500 mb-3">Telah Dikumpulkan</h2>
-                <p class="font-semibold text-3xl">628</p>
-            </div>
-        </div>
 
-        <div class="task-list grid grid-cols-3 gap-8 my-8">
-            <div class="task flex gap-3 bg-gray-100 p-4 rounded-2xl">
-                <div class="task-icon h-14 aspect-square size-fit p-4 bg-blue-400 bg-opacity-20 flex items-center justify-center rounded-xl ">
-                    <i class="ri-book-open-line text-2xl text-blue-400"></i>
+        <form class="max-w-2xl mt-4" method="POST" action="<?php echo base_url('kirimTugas/') . $id_tugas ?>">
+            <label for="link_tugas" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
+            <?php if ($link_tugas) { ?>
+                <div class="relative">
+                    <input type="search" id="link_tugas" name="link_tugas" class="block w-full p-4  text-sm border  rounded-lg bg-gray-50 ring-green-500 focus:ring-green-500 focus:border-green-500 border-green-500 text-green-500" placeholder="contoh: https://drive.google.com/drive/u/0/home/link/tugas/anda.pdf" value="<?php echo $link_tugas ?>" required />
+                    <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Submit</button>
                 </div>
-                <div class="task-text">
-                    <h3 class="font-semibold">Membuat Video Wawancara</h3>
-                    <p class="font-normal text-gray-400">8:00 AM - 10:00 AM</p>
+                <p class="mt-1 text-sm text-gray-500 dark:text-green-500" id="file_input_help">Tugas Berhasil dikumpulkan</p>
+            <?php } else { ?>
+                <div class="relative">
+
+                    <input type="search" id="link_tugas" name="link_tugas" class="block w-full p-4  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500  " placeholder="contoh: https://drive.google.com/drive/u/0/home/link/tugas/anda.pdf" value="<?php echo $link_tugas ?>" required />
+                    <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-[#0ba5ec] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Submit</button>
                 </div>
-            </div>
 
-            <?php for ($i = 0; $i < 10; $i++) {
-                echo "<div class='task flex gap-3 bg-gray-100 p-4 rounded-2xl'>
-                    <div class='task-icon h-14 aspect-square size-fit p-4 bg-blue-400 bg-opacity-20 flex items-center justify-center rounded-xl '>
-                        <i class='ri-book-open-line text-2xl text-blue-400'></i>
-                    </div>
-                    <div class='task-text'>
-                        <h3 class='font-semibold'>Membuat Video Wawancara</h3>
-                        <p class='font-normal text-gray-400'>8:00 AM - 10:00 AM</p>
-                    </div>
-                </div>";
-            } ?>
+            <?php } ?>
+        </form>
 
-        </div>
+
     </main>
 
 </body>

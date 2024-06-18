@@ -1,5 +1,5 @@
 <?php
-$data["judul"] = "Class";
+$data["judul"] = "Profile";
 echo view("templates/head", $data);
 ?>
 

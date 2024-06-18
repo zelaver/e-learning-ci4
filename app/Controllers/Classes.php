@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ModelClass;
 use App\Models\ModelKehadiran;
+use App\Models\ModelTask;
 use DateTime;
 use DateTimeZone;
 
@@ -12,10 +13,12 @@ class Classes extends BaseController
 
     protected $ModelClass;
     protected $ModelKehadiran;
+    protected $ModelTask;
     public function __construct()
     {
         $this->ModelClass = new ModelClass();
         $this->ModelKehadiran = new ModelKehadiran();
+        $this->ModelTask = new ModelTask();
     }
 
     public function index()
@@ -37,8 +40,12 @@ class Classes extends BaseController
         $jam_berakhir  = $class_info['jam_berakhir'];
         $guru = $class_info['guru'];
         $total_pertemuan = $class_info['total_pertemuan'];
-        $ModelKehadiran = $this->ModelKehadiran;
 
+        $ModelKehadiran = $this->ModelKehadiran;
+        $ModelTask = $this->ModelTask;
+
+        $tasks = $ModelTask->where('kode_kelas', $kode_kelas)->where('id_murid', session()->get('id_murid'))->findAll();
+        // dd($tasks);
         
 
         date_default_timezone_set('Asia/Jakarta'); 
@@ -76,6 +83,9 @@ class Classes extends BaseController
             'total_pertemuan' => $total_pertemuan,
             
             'ModelKehadiran' => $ModelKehadiran,
+            'ModelTask' => $ModelTask,
+
+            'tasks' => $tasks,
 
             'isPresensi' => $isPresensi,
             'diLuarJam' => $diLuarJam,

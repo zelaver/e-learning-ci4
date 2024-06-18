@@ -8,13 +8,13 @@ echo view("templates/head", $data);
 <body>
     <?php echo view("templates/nav"); ?>
     <div class="ml-80 p-8">
-        <header class="class-detail grid min-h-80 grid-cols-4 grid-rows-2 gap-8">
+        <header class="class-detail grid max-h-80 grid-cols-4 grid-rows-2 gap-8">
             <form class="presensi row-span-2 flex flex-col gap-2" <?php echo (!$isPresensi && !$diLuarJam && !$diLuarHari) ? 'action="' . base_url('presensi/') . $kode_kelas . '"' . 'method="POST"' : '' ?>>
                 <h1 class="matpel flex justify-between"><?php echo $matpel ?><i class="ri-git-repository-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
                 <p class="hari"><?php echo $hari ?></p>
                 <p class="jam"><?php echo $jam_mulai . ".00 - " . $jam_berakhir . ".00" ?></p>
                 <?php
-                if ($diLuarJam) {
+                if (!$diLuarJam) {
                     echo '<button class="mt-auto bg-red-500 text-slate-100 p-2 rounded-md border-slate-500" disabled><i class="ri-clipboard-fill" ></i>Pelajaran Telah Berakhir</button>';
                 } elseif ($isPresensi) {
                     echo '<button class="mt-auto bg-green-500 text-slate-100 p-2 rounded-md border-slate-500" disabled>Anda Sudah Absen</button>';
@@ -34,8 +34,24 @@ echo view("templates/head", $data);
             </div>
             <div class="tugas row-span-2 flex flex-col gap-4">
                 <h1 class="flex justify-between w-full content-stretch ">Tugas<i class="ri-list-check-3 bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400"></i></h1>
-                <div class="list-tugas flex flex-col h-full">
-                    <p class="block text-center">Tidak ada tugas</p>
+                <div class="list-tugas flex flex-col overflow-y-auto">
+                    <?php if ($tasks) {
+                        foreach ($tasks as $task) {
+                            $id_tugas = $task['id_tugas'];
+                            $judul_tugas = $task['judul_tugas'];
+                            $link_tugas = $task['link_tugas'];
+                            if (!$link_tugas) {
+                    ?>
+                                <p >
+                                    <a href="<?php echo base_url('task/') . $id_tugas ?>"> - <?php echo $judul_tugas ?></a>
+                                </p>
+                        <?php }
+                        }
+                    } else { ?>
+                        <p class="block text-center">Tidak ada tugas</p>
+
+                    <?php } ?>
+
                 </div>
             </div>
             <div class="guru">
@@ -43,7 +59,7 @@ echo view("templates/head", $data);
                 <p>Guru</p>
             </div>
             <div class="total-tugas">
-                <h1 class="flex justify-between"> - <i class="ri-task-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400 text-2xl"></i></h1>
+                <h1 class="flex justify-between"> <?php echo count($tasks) ?> <i class="ri-task-fill bg-blue-100 rounded-full aspect-square w-10 flex justify-center items-center text-blue-400 text-2xl"></i></h1>
                 <p>Total Tugas</p>
             </div>
 

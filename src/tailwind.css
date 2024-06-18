@@ -82,5 +82,11 @@ header.class-detail{
       @apply text-lg;
       @apply text-slate-500
     }
+    
+  }
+  .tugas .list-tugas p{
+    @apply text-sm;
+    @apply text-sm my-2;
+    @apply text-blue-500
   }
 }
