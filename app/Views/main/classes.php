@@ -24,6 +24,7 @@ echo view("templates/head", $data);
 
             <?php
             $classes = json_decode(session()->get('classes'));
+            // dd($classes);
             foreach ($classes as $class) {
                 $class_info = $ModelClass->where('kode_kelas', $class)->first();
                 // echo dd($class_info);
