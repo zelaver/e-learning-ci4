@@ -59,7 +59,7 @@ echo view("templates/head", $data);
                     <input type="checkbox" name="" id="remember">
                     <label class="font-normal" for="remember">Remember Me</label>
                 </div> -->
-                <button class="bg-blue-600 p-4 rounded-lg text-white">Login</button>
+                <button class="bg-blue-600 p-4 rounded-lg text-white">Register</button>
                 <p class="text-center">Sudah punya akun? <a href="login" class="text-blue-600">Login disini!</a></p>
             </form>
         </div>

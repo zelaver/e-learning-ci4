@@ -2,7 +2,7 @@
 $data["judul"] = "Class";
 echo view("templates/head", $data);
 
-// dd($diLuarHari);
+// dd($isPresensi);
 ?>
 
 <body>
@@ -14,7 +14,7 @@ echo view("templates/head", $data);
                 <p class="hari"><?php echo $hari ?></p>
                 <p class="jam"><?php echo $jam_mulai . ".00 - " . $jam_berakhir . ".00" ?></p>
                 <?php
-                if (!$diLuarJam) {
+                if ($diLuarJam) {
                     echo '<button class="mt-auto bg-red-500 text-slate-100 p-2 rounded-md border-slate-500" disabled><i class="ri-clipboard-fill" ></i>Pelajaran Telah Berakhir</button>';
                 } elseif ($isPresensi) {
                     echo '<button class="mt-auto bg-green-500 text-slate-100 p-2 rounded-md border-slate-500" disabled>Anda Sudah Absen</button>';

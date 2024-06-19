@@ -17,11 +17,11 @@ echo view("templates/head", $data);
             </div>
             <div class="task-total p-4 border rounded-md min-w-64 shadow-md">
                 <h2 class="font-medium text-xl text-gray-500 mb-3">Belum Selesai</h2>
-                <p class="font-semibold text-3xl"><?php echo count($unDoneTasks) ?></p>
+                <p class="font-semibold text-blue-500 text-3xl"><?php echo count($unDoneTasks) ?></p>
             </div>
             <div class="task-total p-4 border rounded-md min-w-64 shadow-md">
                 <h2 class="font-medium text-xl text-gray-500 mb-3">Telah Dikumpulkan</h2>
-                <p class="font-semibold text-3xl"><?php echo count($DoneTasks) ?></p>
+                <p class="font-semibold text-green-500 text-3xl"><?php echo count($DoneTasks) ?></p>
             </div>
         </div>
 
@@ -36,32 +36,40 @@ echo view("templates/head", $data);
                 </div>
             </div> -->
 
-            <?php
-
-
-            foreach ($tasks as $task) {
+            <?php foreach ($tasks as $task) { ?>
+                <?php
                 $judul = $task['judul_tugas'];
                 $kode_kelas = $task['kode_kelas'];
                 $nama_kelas = $ModelClass->where('kode_kelas', $kode_kelas)->first()['matpel'];
                 $id_tugas = $task['id_tugas'];
+                $link_tugas = $task['link_tugas'];
+
 
                 $tenggat = $task['tenggat_tugas'];
                 $tenggat = new DateTime($tenggat);
                 $tenggat = $tenggat->format('d/m/y');
                 // dd($tenggat);
 
+                ?>
 
-                echo 
-                "<a class='task flex gap-3 bg-gray-100 p-4 rounded-2xl' href='". base_url('task/') . $id_tugas ."'>
-                    <div class='task-icon h-14 aspect-square size-fit p-4 bg-blue-400 bg-opacity-20 flex items-center justify-center rounded-xl '>
-                        <i class='ri-book-open-line text-2xl text-blue-400'></i>
-                    </div>
+
+
+                <a class='task flex gap-3 bg-gray-100 p-4 rounded-2xl' href='<?php echo base_url('task/') . $id_tugas ?>  '>
+                    <?php if ($link_tugas) { ?>
+                        <div class='task-icon h-14 aspect-square size-fit p-4 bg-green-400 bg-opacity-20 flex items-center justify-center rounded-xl '>
+                            <i class='ri-check-fill text-2xl text-green-400'></i>
+                        </div>
+                        <?php } else {  ?>
+                            <div class='task-icon h-14 aspect-square size-fit p-4 bg-blue-400 bg-opacity-20 flex items-center justify-center rounded-xl '>
+                            <i class='ri-book-open-line text-2xl text-blue-400'></i>
+                        </div>
+                    <?php } ?>
                     <div class='task-text'>
-                        <h3 class='font-semibold'>" . $judul . "</h3>
-                        <p class='font-normal text-gray-400'>" . $nama_kelas . ", " . $tenggat . "</p>
+                        <h3 class='font-semibold'><?php echo $judul ?></h3>
+                        <p class='font-normal text-gray-400'><?php echo $nama_kelas . ',' . $tenggat ?></p>
                     </div>
-                </a>";
-            } ?>
+                </a>
+            <?php } ?>
 
         </div>
     </main>

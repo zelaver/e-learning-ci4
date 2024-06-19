@@ -76,7 +76,7 @@ header.class-detail{
     @apply rounded-md;
 
     h1{
-      @apply text-3xl
+      @apply text-2xl
     }
     p{
       @apply text-lg;

@@ -1264,6 +1264,11 @@ video {
   background-color: rgb(253 224 71 / var(--tw-bg-opacity));
 }
 
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -1551,6 +1556,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-green-400 {
+  --tw-text-opacity: 1;
+  color: rgb(74 222 128 / var(--tw-text-opacity));
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1762,8 +1772,8 @@ header.class-detail{
   }
   .presensi, .kode-kelas, .total-pertemuan, .tugas, .guru, .total-tugas{
     h1 {
-      font-size: 1.875rem;
-      line-height: 2.25rem;
+      font-size: 1.5rem;
+      line-height: 2rem;
     }
     p {
       font-size: 1.125rem;
