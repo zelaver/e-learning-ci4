@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\ModelClass;
 use App\Models\ModelKehadiran;
 use App\Models\ModelTask;
+use CodeIgniter\Database\BaseUtils;
 use DateTime;
 use DateTimeZone;
 
@@ -47,18 +48,19 @@ class Classes extends BaseController
         $tasks = $ModelTask->where('kode_kelas', $kode_kelas)->where('id_murid', session()->get('id_murid'))->findAll();
         // dd($tasks);
         
-
+        
         date_default_timezone_set('Asia/Jakarta'); 
         $currentTime = new DateTime();
         $startTime = new DateTime($jam_mulai . ".00");
         $endTime = new DateTime($jam_berakhir . ".00");
         $diLuarJam = ($currentTime < $startTime || $currentTime > $endTime);
         $diLuarHari = ($currentTime->format('l') != $hari);
-
+        
         $listKehadiran = $ModelKehadiran->where('kode_kelas', $kode_kelas)
-            ->where('id_murid', session()->get('id_murid'))
-            ->findAll();
-
+        ->where('id_murid', session()->get('id_murid'))
+        ->findAll();
+        
+        // dd($currentTime);
 
         $isPresensi = false;
         foreach ($listKehadiran as $kehadiran) {
@@ -131,5 +133,19 @@ class Classes extends BaseController
 
             return redirect()->to(base_url('classes/') . $kode_kelas);
         }
+    }
+
+    public function downloadMateri($fileName){
+        $filepath = WRITEPATH . 'uploads/' . $fileName;
+        // echo $fileName;
+        
+        // Periksa apakah file ada
+        if (!file_exists($filepath)) {
+            dd('kocak bgt njir');
+            return redirect()->back()->with('error', 'File not found');
+        }
+
+        // Gunakan response helper untuk mengirim file sebagai unduhan
+        return $this->response->download($filepath, null);
     }
 }
