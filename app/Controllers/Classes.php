@@ -41,6 +41,7 @@ class Classes extends BaseController
         $jam_berakhir  = $class_info['jam_berakhir'];
         $guru = $class_info['guru'];
         $total_pertemuan = $class_info['total_pertemuan'];
+        $materi = $class_info['materi'];
 
         $ModelKehadiran = $this->ModelKehadiran;
         $ModelTask = $this->ModelTask;
@@ -83,6 +84,7 @@ class Classes extends BaseController
             'jam_berakhir' => $jam_berakhir,
             'guru' => $guru,
             'total_pertemuan' => $total_pertemuan,
+            'materi' => $materi,
             
             'ModelKehadiran' => $ModelKehadiran,
             'ModelTask' => $ModelTask,

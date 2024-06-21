@@ -2,6 +2,9 @@
 $data["judul"] = "Class";
 echo view("templates/head", $data);
 
+// dd(json_decode($materi, true)['judul']);
+$materi = json_decode($materi, true);
+// dd($materi);
 // dd($isPresensi);
 ?>
 
@@ -47,7 +50,7 @@ echo view("templates/head", $data);
                             $link_tugas = $task['link_tugas'];
                             if (!$link_tugas) {
                     ?>
-                                <p >
+                                <p>
                                     <a href="<?php echo base_url('task/') . $id_tugas ?>"> - <?php echo $judul_tugas ?></a>
                                 </p>
                         <?php }
@@ -72,39 +75,21 @@ echo view("templates/head", $data);
 
         <h1 class="my-4 text-xl font-bold text-gray-500">File</h1>
         <section class="my-4 grid grid-cols-4 gap-6">
-            <a href="#" class="flex items-center bg-gray-100 justify-between px-6 py-4 rounded-lg">
-                <div class="circle w-2 h-2 bg-blue-600 rounded-full"></div>
-                <div class="text mr-auto ml-8">
-                    <h2 class="font-bold text-lg">LKS</h2>
-                    <p class="text-sm text-gray-400">Semester Ganjil</p>
-                </div>
-                <i class="ri-download-line text-lg"></i>
-            </a>
-            <a href="#" class="flex items-center bg-gray-100 justify-between px-6 py-4 rounded-lg">
-                <div class="circle w-2 h-2 bg-blue-600 rounded-full"></div>
-                <div class="text mr-auto ml-8">
-                    <h2 class="font-bold text-lg">LKS</h2>
-                    <p class="text-sm text-gray-400">Semester Ganjil</p>
-                </div>
-                <i class="ri-download-line text-lg"></i>
-            </a>
-            <a href="#" class="flex items-center bg-gray-100 justify-between px-6 py-4 rounded-lg">
-                <div class="circle w-2 h-2 bg-blue-600 rounded-full"></div>
-                <div class="text mr-auto ml-8">
-                    <h2 class="font-bold text-lg">LKS</h2>
-                    <p class="text-sm text-gray-400">Semester Ganjil</p>
-                </div>
-                <i class="ri-download-line text-lg"></i>
-            </a>
-            <a href="#" class="flex items-center bg-gray-100 justify-between px-6 py-4 rounded-lg">
-                <div class="circle w-2 h-2 bg-blue-600 rounded-full"></div>
-                <div class="text mr-auto ml-8">
-                    <h2 class="font-bold text-lg">LKS</h2>
-                    <p class="text-sm text-gray-400">Semester Ganjil</p>
-                </div>
-                <i class="ri-download-line text-lg"></i>
-            </a>
-            
+            <?php foreach ($materi as $m) { 
+                $judulMateri = $m['judul'];
+                $semesterMateri = $m['semester'];
+                ?>
+                <a href="<?php echo base_url('downloadMateri/') . $matpel . $judulMateri ?>" class="flex items-center bg-gray-100 justify-between px-6 py-4 rounded-lg">
+                    <div class="circle w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <div class="text mr-auto ml-8">
+                        <h2 class="font-bold text-lg"><?php echo $judulMateri ?></h2>
+                        <p class="text-sm text-gray-400">Semester <?php echo $semesterMateri ?></p>
+                    </div>
+                    <i class="ri-download-line text-lg"></i>
+                </a>
+            <?php } ?>
+
+
         </section>
         <main class=" mt-8">
             <h1 class="my-2 text-xl font-bold text-gray-500">Tabel Kehadiran</h1>

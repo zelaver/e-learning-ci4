@@ -12,5 +12,5 @@ class ModelClass extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [ 'matpel', 'hari', 'jam_mulai', 'jam_berakhir', 'guru', 'total_pertemuan'];
+    protected $allowedFields    = [ 'matpel', 'hari', 'jam_mulai', 'jam_berakhir', 'guru', 'total_pertemuan', 'materi'];
 }
