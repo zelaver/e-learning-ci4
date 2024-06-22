@@ -2,6 +2,7 @@
 $data["judul"] = "Profile";
 echo view("templates/head", $data);
 $profilePict = session()->get('profilePict');
+$is_admin = session()->get('is_admin');
 // dd($profilePict)
 ?>
 
@@ -93,7 +94,15 @@ $profilePict = session()->get('profilePict');
 
 
     <!-- MAIN START -->
-    <?php echo view("templates/nav"); ?>
+    <?php 
+    if ($is_admin){
+        echo view("templates/nav_admin"); 
+    } else {
+        echo view("templates/nav"); 
+        
+    }
+    // dd($is_admin);
+    ?>
     <main class="ml-80 h-min-[100vh] p-8">
         <h1 class="font-semibold text-gray-500 mb-4">Your profile</h1>
         <div class="profile w-full min-h-[450px] rounded-lg relative border shadow-md rounded-t-3xl">

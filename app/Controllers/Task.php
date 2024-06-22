@@ -24,8 +24,9 @@ class Task extends BaseController
         if (!session()->get('is_login')) {
             return redirect()->to('/');
         };
-        $id_murid = session()->get('id_murid');
-        $tasks = $this->ModelTask->where('id_murid',  $id_murid)->find();
+        $id_user = session()->get('id_user');
+        $tasks = $this->ModelTask->where('id_user',  $id_user)->find();
+        
         $unDoneTasks = array_filter($tasks, function($task) {
             return empty($task['link_tugas']);
         });

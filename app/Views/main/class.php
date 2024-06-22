@@ -78,7 +78,7 @@ $materi = json_decode($materi, true);
                 $judulMateri = $m['judul'];
                 $semesterMateri = $m['semester'];
                 ?>
-                <a href="<?php echo base_url('downloadMateri/') . $matpel . $judulMateri ?>" class="flex items-center bg-gray-100 justify-between px-6 py-4 rounded-lg">
+                <a href="<?php echo base_url('downloadMateri/') . $matpel . '/' .  $judulMateri ?>" class="flex items-center bg-gray-100 justify-between px-6 py-4 rounded-lg">
                     <div class="circle w-2 h-2 bg-blue-600 rounded-full"></div>
                     <div class="text mr-auto ml-8">
                         <h2 class="font-bold text-lg"><?php echo $judulMateri ?></h2>

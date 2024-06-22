@@ -80,6 +80,8 @@ class Register extends BaseController
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'parent' => '',
+                'is_admin' => '0',
+                'profilePict' => 'imcooked.png',
                 'classes' => '[]',
                 'tasks' => '[]'
             ];

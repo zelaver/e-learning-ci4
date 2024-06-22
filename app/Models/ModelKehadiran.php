@@ -12,5 +12,5 @@ class ModelKehadiran extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['kode_kelas', 'id_murid', 'created_at'];
+    protected $allowedFields    = ['kode_kelas', 'id_user', 'created_at'];
 }

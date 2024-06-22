@@ -46,7 +46,7 @@ class Classes extends BaseController
         $ModelKehadiran = $this->ModelKehadiran;
         $ModelTask = $this->ModelTask;
 
-        $tasks = $ModelTask->where('kode_kelas', $kode_kelas)->where('id_murid', session()->get('id_murid'))->findAll();
+        $tasks = $ModelTask->where('kode_kelas', $kode_kelas)->where('id_user', session()->get('id_user'))->findAll();
         // dd($tasks);
         
         
@@ -58,7 +58,7 @@ class Classes extends BaseController
         $diLuarHari = ($currentTime->format('l') != $hari);
         
         $listKehadiran = $ModelKehadiran->where('kode_kelas', $kode_kelas)
-        ->where('id_murid', session()->get('id_murid'))
+        ->where('id_user', session()->get('id_user'))
         ->findAll();
         
         // dd($currentTime);
@@ -68,9 +68,9 @@ class Classes extends BaseController
             $created_at = $kehadiran['created_at'];
             $created_at = new DateTime($created_at);
 
-            $id_murid = session()->get('id_murid');
+            $id_user = session()->get('id_user');
 
-            $isPresensi = ($kode_kelas == $kehadiran['kode_kelas'] && $id_murid == $kehadiran['id_murid'] && $currentTime->format('d-l') == $created_at->format('d-l'));
+            $isPresensi = ($kode_kelas == $kehadiran['kode_kelas'] && $id_user == $kehadiran['id_user'] && $currentTime->format('d-l') == $created_at->format('d-l'));
 
             if ($isPresensi) break;
         }
@@ -118,7 +118,7 @@ class Classes extends BaseController
         $diLuarJam = $classInfo['diLuarJam'];
         $diLuarHari = $classInfo['diLuarHari'];
 
-        $id_murid = session()->get('id_murid');
+        $id_user = session()->get('id_user');
         $created_at = new DateTime();
 
         if ($isPresensi || $diLuarJam || $diLuarHari) {
@@ -127,7 +127,7 @@ class Classes extends BaseController
         } else {
             $data = [
                 'kode_kelas' => $kode_kelas,
-                'id_murid' => $id_murid,
+                'id_user' => $id_user,
                 'created_at' => $created_at->format('Y-m-d H:i:s')
             ];
 
@@ -137,13 +137,13 @@ class Classes extends BaseController
         }
     }
 
-    public function downloadMateri($fileName){
-        $filepath = WRITEPATH . 'uploads/' . $fileName;
+    public function downloadMateri($matkul , $fileName){
+        $filepath = WRITEPATH . 'uploads/' . $matkul . '/' . $fileName .'.pdf';
         // echo $fileName;
         
         // Periksa apakah file ada
         if (!file_exists($filepath)) { 
-            dd('kocak bgt njir');
+            // dd($filepath);
             return redirect()->back()->with('error', 'File not found');
         }
 

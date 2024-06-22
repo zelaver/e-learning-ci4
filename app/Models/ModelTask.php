@@ -12,5 +12,5 @@ class ModelTask extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['kode_kelas', 'id_murid', 'judul_tugas', 'desc_tugas', 'tenggat_tugas', 'link_tugas'];
+    protected $allowedFields    = ['kode_kelas', 'id_user', 'judul_tugas', 'desc_tugas', 'tenggat_tugas', 'link_tugas'];
 }

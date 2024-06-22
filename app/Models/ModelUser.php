@@ -7,10 +7,10 @@ use CodeIgniter\Model;
 class ModelUser extends Model
 {
     protected $table            = 'user';
-    protected $primaryKey       = 'id_murid';
+    protected $primaryKey       = 'id_user';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', "email", "password", "class", "address", "phone", "parent", "profilePict", "classes", 'tasks'];
+    protected $allowedFields    = ['is_admin', 'nama', "email", "password", "class", "address", "phone", "parent", "profilePict", "classes", 'tasks'];
 }

@@ -34,18 +34,22 @@ class Login extends BaseController
 
         // > Data yang di passing ke session
         $data = [
-            'id_murid' => $user['id_murid'],
+            'id_user' => $user['id_user'],
+            'is_admin' => $user['is_admin'],
             'nama' => $user['nama'],
             'email' => $user['email'],
             'parent' => $user['parent'],
             'class' => $user['class'],
             'address' => $user['address'],
             'phone' => $user['phone'],
+            'profilePict' => $user['profilePict'],
             'classes' => $user['classes'],
             'tasks' => $user['tasks'],
             'is_login' => true
         ];
         session()->set($data);
+
+
         
         
         return redirect()->to('profile');

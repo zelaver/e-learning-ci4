@@ -1,5 +1,9 @@
 <nav class="fixed h-full w-80 flex flex-col justify-start border-r border-b">
-    <h1 class="font-bold text-center my-4 text-2xl text-[#4f4f4f]"><span class="text-[#0BA5EC]">E</span>-Learning</h1>
+    <div class="judul my-4">
+        <h1 class="font-bold text-center text-2xl text-[#4f4f4f]"><span class="text-[#0BA5EC]">E</span>-Learning</h1>
+        <h2 class="text-center font-bold text-[#0BA5EC] ">Admin</h2>
+
+    </div>
     <ul class="list-none flex flex-col gap-4 p-4">
         <li class="group">
             <a href="<?php echo base_url('profile') ?>" class="nav-link group-hover:text-white transition-colors duration-100">
@@ -10,20 +14,20 @@
         <li class="group">
             <a href="<?php echo base_url('pengumuman') ?>" class="nav-link group-hover:text-white transition-colors duration-100 ">
                 <i class="ri-news-line group-hover:text-white transition-colors duration-100 text-2xl h-6 aspect-square flex text-[#98a2b3] items-center"></i>
-                <p>Pengumuman</p>
+                <p>Classes Data</p>
             </a>
         </li>
         <li class="group">
             <a href="<?php echo base_url('classes') ?>" class="nav-link group-hover:text-white transition-colors duration-100">
                 <i class="fa-xl fa-solid fa-book group-hover:text-white transition-colors duration-100"></i>
-                <p>Classes</p>
+                <p>Tasks Data</p>
                 <i class="fa-xl fa-solid fa-angle-right group-hover:text-white transition-colors duration-100"></i>
             </a>
         </li>
         <li class="group">
             <a href="<?php echo base_url('task') ?>" class="nav-link group-hover:text-white transition-colors duration-100">
                 <i class="fa-xl fa-solid fa-list-check group-hover:text-white transition-colors duration-100"></i>
-                <p>Task</p>
+                <p>User Data</p>
             </a>
         </li>
 
