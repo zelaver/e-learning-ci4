@@ -928,6 +928,10 @@ video {
   width: 10rem;
 }
 
+.w-60 {
+  width: 15rem;
+}
+
 .w-8 {
   width: 2rem;
 }

@@ -53,7 +53,7 @@
 
         <!-- Profile section  -->
         <div class="profile flex justify-between pt-4 px-4 border-t h-16 border-[#EAECF0]">
-            <img src="<?php echo base_url('img/imcooked.png') ?>" alt="pp" class=" aspect-square h-full rounded-full object-cover object-center">
+            <img src="<?php echo base_url('img/profile/') . session()->get('profilePict') ?>" alt="pp" class=" aspect-square h-full rounded-full object-cover object-center">
             <div class="username-email ml-2 mr-auto">
                 <p class="font-medium"><?php echo session()->get('nama') ?></p>
 

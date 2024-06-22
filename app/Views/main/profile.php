@@ -1,11 +1,13 @@
 <?php
 $data["judul"] = "Profile";
 echo view("templates/head", $data);
+$profilePict = session()->get('profilePict');
+// dd($profilePict)
 ?>
 
 
 <body class="">
-    
+
 
     <!-- MODAL START -->
     <!-- Main modal -->
@@ -26,7 +28,8 @@ echo view("templates/head", $data);
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form class="my-4 flex flex-col gap-4" method="POST" action="profile/simpan">
+                <?= form_open_multipart('profile/simpan'); ?>
+                <div class="my-4 flex flex-col gap-4">
                     <div class="relative mx-4">
                         <input class=" input-nama block w-full outline-none h-16 rounded-lg pl-14 border-gray-300 border relative peer invalid:border-red-500 invalid:text-red-500 " type="" id="nama" placeholder="" required required name="nama" value="<?php echo session()->get('nama') ?>">
                         <label for="nama" class="label-nama absolute top-1/2 -translate-y-1/2 ml-12 transition-all text-gray-400 bg-white px-2 duration-100 peer-invalid:text-red-500">Nama</label>
@@ -70,13 +73,20 @@ echo view("templates/head", $data);
                             <i class="ri-mail-line text-3xl"></i>
                         </label>
                     </div>
+                    <div class="relative mx-4">
+                        <label class="custom-file-label block font-bold" for="profilePict">Ganti profile picture</label>
+                        <input type="file" class="custom-file-input border border-slate-500 rounded-lg my-2" id="profilePict" name="profilePict" onchange="previewFile()">
+                        <img id="previewImage" class="img-thumbnail w-60" alt="">
+                    </div>
 
                     <!-- Modal footer -->
                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                         <button data-modal-hide="" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan</button>
                         <button data-modal-hide="default-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-red-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-red-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Batal</button>
                     </div>
-                </form>
+                </div>
+                <?= form_close(); ?>
+
             </div>
         </div>
     </div>
@@ -90,7 +100,7 @@ echo view("templates/head", $data);
             <div class="profile-cover bg-[#0ba5ec] h-36 -z-20 rounded-t-3xl relative "></div>
             <div class="profile-cover bg-[#5B61FB] h-36 w-1/6 -z-10 absolute top-20 right-96 rounded-t-3xl "></div>
             <div class="profile-cover bg-[#FB7D5B] h-36 w-1/6 -z-10 absolute top-10 right-60 rounded-t-3xl "></div>
-            <div class="profile-image h-40 w-40 bg-cover border-8 border-white bg-center rounded-full absolute top-14 left-14" style="background-image: url('img/imcooked.png');"></div>
+            <div class="profile-image h-40 w-40 bg-cover border-8 border-white bg-center rounded-full absolute top-14 left-14" style="<?php echo "background-image: url('img/profile/". $profilePict ."');" ?>"></div>
             <button data-modal-target="default-modal" data-modal-toggle="default-modal" class=" bg-yellow-300 aspect-square w-12 absolute top-8 right-8 rounded-full shadow-lg"><i class="ri-pencil-fill text-2xl text-slate-700"></i></button>
             <div class="profile-content mx-10 pt-20 flex flex-col gap-8 z-50 bg-white">
                 <div class="profile-text grid gap-4 w-1/4">
@@ -136,6 +146,30 @@ echo view("templates/head", $data);
 
     </main>
 
+
+
+    <script>
+        function previewFile() {
+            const preview = document.querySelector('#previewImage');
+            const file = document.querySelector('input[type=file]').files[0];
+            const reader = new FileReader();
+            const filename = document.querySelector('.custom-file-label')
+
+
+
+            reader.onloadend = function() {
+                preview.src = reader.result;
+                // filename.innerHTML = file.name;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+
+            } else {
+                preview.src = "";
+            }
+        }
+    </script>
 </body>
 
 </html>

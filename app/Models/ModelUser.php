@@ -12,5 +12,5 @@ class ModelUser extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', "email", "password", "class", "address", "phone", "parent", "classes", 'tasks'];
+    protected $allowedFields    = ['nama', "email", "password", "class", "address", "phone", "parent", "profilePict", "classes", 'tasks'];
 }

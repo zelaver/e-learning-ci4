@@ -25,19 +25,17 @@ class Profile extends BaseController
 
     public function simpan()
     {
-        $id = session()->get('id');
+        $id_murid = session()->get('id_murid');
         $nama = $this->request->getVar('nama');
         $class = $this->request->getVar('class');
         $parent = $this->request->getVar('parent');
         $address = $this->request->getVar('address');
         $phone = $this->request->getVar('phone');
         $email = $this->request->getVar('email');
+        $profilePict = $this->request->getFile('profilePict');
 
-        // dd($class);
-
-        if ($nama == '' || $class == '' || $parent == '' || $address == '' || $phone == '' || $email == '') {
-                return redirect()->to('profile');
-        }
+        // dd($profilePict);
+        // dd($namaGambar);
 
         $profile = [
             'nama' => $nama,
@@ -48,9 +46,25 @@ class Profile extends BaseController
             'email' => $email,
         ];
 
-        session()->set($profile);
-        $this->ModelUser->update(['id' => $id], $profile);
+        // >Reject jika input form ada yang kosong 
+        if ($nama == '' || $class == '' || $parent == '' || $address == '' || $phone == '' || $email == '') {
+            return redirect()->to('profile');
+        }
 
+        if ($profilePict && $profilePict->isValid() && !$profilePict->hasMoved()) {
+            $profilePict->move('./img/profile/');
+            $profilePictName = $profilePict->getName();
+            $profile = $profile + [
+                'profilePict' => $profilePictName
+            ];
+            // dd('masuk sini');
+        }
+
+
+        session()->set($profile);
+        $this->ModelUser->update(['id_murid' => $id_murid], $profile);
+        $query = $this->ModelUser->getLastQuery();
+        // dd($query);
 
 
 

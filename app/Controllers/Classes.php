@@ -142,7 +142,7 @@ class Classes extends BaseController
         // echo $fileName;
         
         // Periksa apakah file ada
-        if (!file_exists($filepath)) {
+        if (!file_exists($filepath)) { 
             dd('kocak bgt njir');
             return redirect()->back()->with('error', 'File not found');
         }

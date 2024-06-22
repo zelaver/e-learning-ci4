@@ -11,7 +11,6 @@ $materi = json_decode($materi, true);
 <body>
     <?php echo view("templates/nav"); ?>
     <div class="ml-80 p-8">
-        <!-- <a href="https://cdn.discordapp.com/attachments/1114426119324704869/1253335776956252210/Modul_Web_Programming_II_682-UBSI_upd_Maret_2024.pdf?ex=66757b67&is=667429e7&hm=2260e53fc349cba4ede5baf00e0aac9d5e951a0525e3d4625d6b72047e6c165e&">ini link download</a> -->
         <!-- <a href="<?php echo base_url('downloadMateri/') . 'modul-web-2.pdf' ?>" class="block">link download file</a> -->
         <h1 class="my-2 text-xl font-bold text-gray-500">Presensi</h1>
         <header class="class-detail grid max-h-80 grid-cols-4 grid-rows-2 gap-8">
