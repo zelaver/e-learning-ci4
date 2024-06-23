@@ -41,9 +41,8 @@ echo view("templates/head", $data);
 
                     </div>
                     <div class="relative mx-4">
-                        <!-- <input class=" input-class block w-full outline-none h-16 rounded-lg pl-14 border-gray-300 border relative peer invalid:border-red-500 invalid:text-red-500" id="hari" required placeholder="" name="hari"> -->
-                        <select id="hari" name="hari" class="h-16 pl-14 input-class bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " required>
-                            <option selected hidden >Choose a country</option>
+                        <select id="hari" name="hari" class="h-16 pl-14 input-class d bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-300 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " required>
+                            <option selected hidden>Pilih Hari</option>
                             <option value="Sunday">Sunday</option>
                             <option value="Monday">Monday</option>
                             <option value="Tuesday">Tuesday</option>
@@ -114,7 +113,7 @@ echo view("templates/head", $data);
         </form>
 
         <div class="">
-            <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="w-36 mb-2 p-2.5 ms-2 text-sm font-medium text-blue-500  rounded-md border border-blue-700 focus:ring-2 focus:outline-none focus:ring-blue-300  ">
+            <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="tambah-data w-36 mb-2 p-2.5 ms-2 text-sm font-medium text-blue-500  rounded-md border border-blue-700 focus:ring-2 focus:outline-none focus:ring-blue-300  ">
                 <!-- <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg> -->
@@ -190,7 +189,9 @@ echo view("templates/head", $data);
                                 </ol>
                             </td>
                             <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                <a href="#" class="font-medium text-blue-600 hover:underline" data-modal-target="default-modal" data-modal-toggle="default-modal" onclick="edit(<?= $col['kode_kelas'] ?>)">Edit</a>
+                                <span> | </span>
+                                <a href="#" class="font-medium text-red-600 hover:underline" onclick="hapus(<?php echo $col['kode_kelas'] ?>)">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -215,33 +216,37 @@ echo view("templates/head", $data);
         function hapus($id) {
             var result = confirm('Are you sure you want to delete this');
             if (result) {
-                window.location = "<?php echo site_url("hapus") ?>/" + $id;
+                window.location = "<?php echo site_url("ClassesDataDelete") ?>/" + $id;
             }
         }
 
 
         function edit($id) {
             $.ajax({
-                url: "<?php echo site_url("edit") ?>/" + $id,
+                url: "<?php echo base_url("ClassesDataEdit") ?>/" + $id,
                 type: "get",
                 success: function(hasil) {
                     var $obj = $.parseJSON(hasil);
-                    if ($obj.id) {
-                        $('#inputId').val($obj.id);
-                        $('#inputNama').val($obj.nama);
-                        $('#inputEmail').val($obj.email);
-                        $('#inputBidang').val($obj.bidang);
-                        $('#inputAlamat').val($obj.alamat);
+                    if ($obj.kode_kelas) {
+                        $('#kode_kelas').val($obj.kode_kelas);
+                        $('#matpel').val($obj.matpel);
+                        $('#hari').val($obj.hari);
+                        $('#jam_mulai').val($obj.jam_mulai);
+                        $('#jam_berakhir').val($obj.jam_berakhir);
+                        $('#guru').val($obj.guru);
+                        $('#total_pertemuan').val($obj.total_pertemuan);
                     }
                 }
             })
         }
         $('.tambah-data').on('click', function() {
-            $('#inputId').val('');
-            $('#inputNama').val('');
-            $('#inputEmail').val('');
-            $('#inputBidang').val('');
-            $('#inputAlamat').val('');
+            $('#kode_kelas').val('');
+            $('#matpel').val('');
+            $('#hari').val('Pilih Hari');
+            $('#jam_mulai').val('');
+            $('#jam_berakhir').val('');
+            $('#guru').val('');
+            $('#total_pertemuan').val('');
         });
         $('#modal-tambah').on('hidden.bs.modal', function(e) {
             e.preventDefault();

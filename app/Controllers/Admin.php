@@ -26,7 +26,7 @@ class Admin extends BaseController
 
 
     public function classesData()
-    { 
+    {
         $jumlahBaris = 6;
         $katakunci = $this->request->getGet('katakunci');
 
@@ -42,7 +42,8 @@ class Admin extends BaseController
         return view('admin/classes', $data);
     }
 
-    public function classesDataSave(){
+    public function classesDataSave()
+    {
         $validation = \Config\Services::validation();
         $rules = [
             'matpel' => [
@@ -114,8 +115,8 @@ class Admin extends BaseController
 
             $this->ModelClass->save($dataSave);
 
-            
-            
+
+
             $hasil['success'] = true;
             $hasil['error'] = "aman coy";
         } else {
@@ -125,6 +126,18 @@ class Admin extends BaseController
         }
 
         // return json_encode($hasil);
+        return redirect()->to(base_url('ClassesData'));
+    }
+
+    public function classesDataEdit($kode_kelas)
+    {
+        // dd($kode_kelas);
+        return json_encode($this->ModelClass->find($kode_kelas));
+    }
+
+    public function classesDataDelete($kode_kelas)
+    {
+        $this->ModelClass->delete($kode_kelas);
         return redirect()->to(base_url('ClassesData'));
     }
 

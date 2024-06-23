@@ -33,3 +33,5 @@ $routes->post('register', 'Register::register');
 $routes->get('ClassesData', 'Admin::classesData');
 $routes->get('ClassesDataSave', 'Admin::classesDataSave');
 $routes->post('ClassesDataSave', 'Admin::classesDataSave');
+$routes->get('ClassesDataEdit/(:num)', 'Admin::classesDataEdit/$1');
+$routes->get('ClassesDataDelete/(:num)', 'Admin::classesDataDelete/$1');
