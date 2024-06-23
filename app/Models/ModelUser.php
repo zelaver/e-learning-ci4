@@ -13,4 +13,6 @@ class ModelUser extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['is_admin', 'nama', "email", "password", "class", "address", "phone", "parent", "profilePict", "classes", 'tasks'];
+
+    
 }

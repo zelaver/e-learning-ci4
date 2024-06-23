@@ -12,7 +12,7 @@
             </a>
         </li>
         <li class="group">
-            <a href="<?php echo base_url('pengumuman') ?>" class="nav-link group-hover:text-white transition-colors duration-100 ">
+            <a href="<?php echo base_url('ClassesData') ?>" class="nav-link group-hover:text-white transition-colors duration-100 ">
                 <i class="ri-news-line group-hover:text-white transition-colors duration-100 text-2xl h-6 aspect-square flex text-[#98a2b3] items-center"></i>
                 <p>Classes Data</p>
             </a>

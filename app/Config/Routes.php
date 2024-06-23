@@ -28,3 +28,8 @@ $routes->get('logout', 'Login::logout');
 
 $routes->get('register', 'Register::index');
 $routes->post('register', 'Register::register');
+
+// Admin Routes
+$routes->get('ClassesData', 'Admin::classesData');
+$routes->get('ClassesDataSave', 'Admin::classesDataSave');
+$routes->post('ClassesDataSave', 'Admin::classesDataSave');
